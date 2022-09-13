@@ -5,8 +5,10 @@ def stock_picker(prices)
   prices.each_with_index do |price, day_to_buy|
     day_to_sell = day_to_buy + 1
     while day_to_sell < days do
-      return_on_investment = prices[day_to_buy] - prices[day_to_sell]
-      puts "Day to Buy: #{day_to_buy}, Day to Sell: #{day_to_sell}, ROI: #{return_on_investment}"
+      if day_to_sell > day_to_buy
+       return_on_investment = prices[day_to_buy] - prices[day_to_sell]
+        puts "Day to Buy: #{day_to_buy}, Day to Sell: #{day_to_sell}, ROI: #{return_on_investment}"
+      end
       day_to_sell += 1
     end
   end
